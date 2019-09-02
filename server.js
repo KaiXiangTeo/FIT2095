@@ -45,7 +45,7 @@ app.get('/', function (req, res) {
 
 //add new task
 app.get("/newtask", function (req, res) {
-    res.sendFile(__dirname + "/views/newtask.html")
+    res.sendFile(__dirname + "/views/newTask.html")
 });
 
 app.post('/addtask', function (req, res) {
