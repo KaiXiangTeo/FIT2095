@@ -1,13 +1,13 @@
 let express = require('express')
 const mongodb = require("mongodb");
-const morgan = require('morgan');
+// const morgan = require('morgan');
 let bodyParser = require('body-parser')
 
 let app = express()
 
 app.use(express.static("public/img"))
 app.use(express.static("views"))
-app.use(morgan('common'));
+// app.use(morgan('common'));
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -60,18 +60,10 @@ app.post('/addtask', function (req, res) {
     console.log(req.body);
     db.collection('tasklist').insertOne(taskDetails);
     res.redirect('/listTask'); 
-    // res.render("listtask.html",{    //render file must in "views"
-    //     tasks:db
-    // });
+   
 })
 
 //list task
-// app.get("/listtask",function(req,res){ 
-//     res.render("listtask.html",{    //render file must in "views"
-//         tasks:db
-//     });
-// })
-
 app.get('/listtask', function (req, res) {
     db.collection('tasklist').find({}).toArray(function (err, data) {
         res.render('listTask.html', {
@@ -118,7 +110,7 @@ app.get('/deleteAll', function (req, res) {
 });
 //POST request: receive the user's name and do the delete operation 
 app.post('/deleteAllTask', function (req, res) {
-    if (req.body.selection== "true"){
+    if (req.body.selection == "true"){
         db.collection('tasklist').deleteMany({});
         res.redirect("/listTask");
     }
@@ -126,5 +118,18 @@ app.post('/deleteAllTask', function (req, res) {
         res.redirect("/");
     }
 });
+
+
+// extra task: find all tasks which have ID value between two numbers A and B.
+app.get('/findtasks/:query1/:query2', function (req, res) {
+    let filter1 = parseInt(req.params.query1);
+    let filter2 = parseInt(req.params.query2);
+    
+    db.collection("tasklist").find({$and:[{TaskId:{$gte:filter1}},{TaskId:{$lte:filter2}}]}).toArray(function(err,result){
+            console.log(result);
+        res.render('findtasks.html', { tasks: result});
+        });
+    });
+
 
 app.listen(8080);
