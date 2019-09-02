@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
+
+<body>
+    <img src="update.jpg" />
+
+    <h1>Update Task</h1></br>
+
+    <h1>
+        <a href="/">Home</a>
+        <a href="/newtask">Add new Task</a>
+        <a href="/listTask">List Task</a>
+        <a href="/updateTask">Update Task</a>
+        <a href="/deleteTask">Delete Task</a>
+        <a href="/deleteAll">Delete All</a>
+
+    </h1>
+
+    <form action="/updatetaskdata" method="POST">
+        Task Id <input type="number" method="POST" name="utaskid" /> </br>
+        Update Status:
+        <select name="taskStatus">
+            <option value="InProgress"> In Progress</option>
+            <option value="Complete"> Complete</option>
+        </select></br>
+        <input type="submit" value="Submit" /> </br>
+    </form>
+</body>
+
+</html>

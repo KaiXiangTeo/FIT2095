@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <img src="add.png" />
+    <font size="5px">
+        <p>
+            <a href="/">Home</a>
+            <a href="/newtask">Add new Task</a>
+            <a href="/listTask">List Task</a>
+            <a href="/updateTask">Update Task</a>
+            <a href="/deleteTask">Delete Task</a>
+            <a href="/deleteAll">Delete All</a>
+
+        </p>
+        <h1>Enter new Task:</h1>
+        <form action="addtask" method="post">
+            <!-- TaskId  <input type="text" name="TaskId" /><br />   -->
+            TaskName <input type="text" name="TaskName" /><br />
+            TaskAssign <input type="text" name="TaskAssign" /><br />
+            TaskDue <input type="date" name="TaskDue" /><br />
+            TaskStatus:
+             <select name="TaskStatus">
+                <option value="InProgress"> In Progress</option>
+                <option value="Complete"> Complete</option>
+            </select></br>
+            TaskDesc <input type="text" name="TaskDesc" /><br />
+            <button style="height: 25px;width: 80px">Submit</button>
+        </form>
+</body>
+
+</html>

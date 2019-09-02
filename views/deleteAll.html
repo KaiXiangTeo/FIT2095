@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Delete All</h1></br>
+    <h1>
+        <a href="/">Home</a>
+        <a href="/newtask">Add new Task</a>
+        <a href="/listTask">List Task</a>
+        <a href="/updateTask">Update Task</a>
+        <a href="/deleteTask">Delete Task</a>
+
+    </h1>
+
+    <form class="form" action="/deleteAllTask" method="POST">
+        <p>Are you sure you want to delete all data:</p>
+          <input class="radio" type="radio" name="selection" value="true"> Yes<br>
+          <input class="radio" type="radio" name="selection" value="false"> No<br>
+          <button>Submit</button>
+    </form>
+
+</body>
+
+</html>
